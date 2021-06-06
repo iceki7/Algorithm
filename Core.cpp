@@ -19,7 +19,7 @@
 
 #define pi 3.1415926535
 
-//竞赛核心笔记
+
 using namespace std;
 
 queue <int>qx,qy;   //push;pop;front;back;
