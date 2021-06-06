@@ -13,10 +13,10 @@ vector<int> undid;
 int n,m;
 //max_i,j{st(i,j)}
 //st(i,j)=min_x{WP(i,j,x)}
-//WP:´Óiµ½jµÄÂ·¾¶xËù¶ÔÓ¦µÄÈ¨Öµ
+//WP:ä»iåˆ°jçš„è·¯å¾„xæ‰€å¯¹åº”çš„æƒå€¼
 
 
-//ÇóÈÎ¸øµÄÁ½µãÖ®¼ä¹ØÓÚÄ³¸ö²â¶ÈµÄ×î¼ÑµÄÂ·¾¶µÄÎÊÌâ£¬Dijskra°æ±¾
+//æ±‚ä»»ç»™çš„ä¸¤ç‚¹ä¹‹é—´å…³äºæŸä¸ªæµ‹åº¦çš„æœ€ä½³çš„è·¯å¾„çš„é—®é¢˜ï¼ŒDijskraç‰ˆæœ¬
 
 void del(int v)
 {
@@ -29,7 +29,7 @@ void del(int v)
 }
 
 
-void dijskra()//Ñ°ÕÒmin_w{E(i,j)}
+void dijskra()//å¯»æ‰¾min_w{E(i,j)}
 {
 
   for(int tm=0;tm<n-1;tm++)
@@ -58,10 +58,10 @@ void dijskra()//Ñ°ÕÒmin_w{E(i,j)}
       {
            for(vector<int>::iterator i=did.begin();i!=did.end();i++)
         {
-            st[*i][tj]=st[tj][*i]=max(st[*i][ti],edg[ti][tj]);//ÌØÕ÷º¯Êı£¬¸ù¾İÎÊÌâÀàĞÍµÄ²»Í¬¶øÓĞËù²»Í¬
+            st[*i][tj]=st[tj][*i]=max(st[*i][ti],edg[ti][tj]);//ç‰¹å¾å‡½æ•°ï¼Œæ ¹æ®é—®é¢˜ç±»å‹çš„ä¸åŒè€Œæœ‰æ‰€ä¸åŒ
 
 
-            //Í¨³£µÄÌØÕ÷º¯Êı£ºst(j)=st(i)+e~(i,j)
+            //é€šå¸¸çš„ç‰¹å¾å‡½æ•°ï¼šst(j)=st(i)+e~(i,j)
         }
           did.push_back(tj);
           del(tj);
