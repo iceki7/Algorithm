@@ -2,12 +2,12 @@
 #include<cstring>
 #include<cmath>
 #define load 50005
-//²¢²é¼¯°æ±¾£¬½«ËùÓĞÔªËØ»®·ÖÎªµÈ¼ÛÀà£¬²¢Éè¶¨´ú±íÔª
+//å¹¶æŸ¥é›†ç‰ˆæœ¬ï¼Œå°†æ‰€æœ‰å…ƒç´ åˆ’åˆ†ä¸ºç­‰ä»·ç±»ï¼Œå¹¶è®¾å®šä»£è¡¨å…ƒ
 using namespace std;
-int key[load];//ÄÚÈİÎªÊı×Ö
-int last[load];//ÏÂ±êÎªÊı×Ö
+int key[load];//å†…å®¹ä¸ºæ•°å­—
+int last[load];//ä¸‹æ ‡ä¸ºæ•°å­—
 
-//°´´ÎĞòÃ¶¾Ù¡£
+//æŒ‰æ¬¡åºæšä¸¾ã€‚
 int n;
 int rr=0;
 int mi=50005,mx=0;
@@ -33,7 +33,7 @@ int main()
 			{
 				if(i==l)
 				first=fnd(i);
-				else if(fnd(i)!=first)break;//¶à¸öµÈ¼ÛÀà
+				else if(fnd(i)!=first)break;//å¤šä¸ªç­‰ä»·ç±»
 
 				rr++;
 			}
@@ -44,7 +44,7 @@ int main()
 	cout<<rr;
 
 }
-void init()//²¢²é¼¯µÄ»®·Ö
+void init()//å¹¶æŸ¥é›†çš„åˆ’åˆ†
 {
 		for(int i=1;i<=n;i++)
 	{
@@ -57,13 +57,13 @@ void init()//²¢²é¼¯µÄ»®·Ö
 
 	}
 }
-//base ¸ù½Úµã last ÉÏ²ã½Úµã
+//base æ ¹èŠ‚ç‚¹ last ä¸Šå±‚èŠ‚ç‚¹
 int root(int x)
 {
 	if(last[x]==x)return x;
 	else return (last[x]=root(last[x]));
 }
-void mrg(int x,int y)//xµÄ¸ù½ÚµãÖ¸ÏòyµÄ¸ù½Úµã
+void mrg(int x,int y)//xçš„æ ¹èŠ‚ç‚¹æŒ‡å‘yçš„æ ¹èŠ‚ç‚¹
 {
 	last[root(x)]=root(y);
 }
