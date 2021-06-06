@@ -3,11 +3,11 @@
 using namespace std;
 typedef pair<int,int> pii;
 
-//优先队列，底层是一个heap
-priority_queue<pii,vector<pii>,greater<pii> > pq;//小顶
+//浼樺厛闃熷垪锛屽簳灞傛槸涓�涓猦eap
+priority_queue<pii,vector<pii>,greater<pii> > pq;//灏忛《
 
 
-struct func//可重写仿函数
+struct func//鍙噸鍐欎豢鍑芥暟
 {
      bool operator()(obj a, obj b)
     {
@@ -25,12 +25,12 @@ pq.push(a);
 pq.push(b);
 pq.push(c);
 
-cout<<pq.top().first<<endl;//无front和back
+cout<<pq.top().first<<endl;//鏃爁ront鍜宐ack
 pq.pop();
 cout<<pq.top().first<<endl;
     return 0;
 }
-//DJ算法+优先队列
+//DJ绠楁硶+浼樺厛闃熷垪
 
 /*
 void DJ()
@@ -40,14 +40,14 @@ void DJ()
         int key=0;
         do
         {
-            for(遍历undone集合)
+            for(閬嶅巻undone闆嗗悎)
                {
                    if(!connnect)continue;
 
                        pq.push(pair<int,int>(wt,id));
                }
             int tj=pq.top().second;
-            while(rr[tj]!=0) //已经完成了该点的解答
+            while(rr[tj]!=0) //宸茬粡瀹屾垚浜嗚鐐圭殑瑙ｇ瓟
             {
                 pq.pop();
                 if(pq.empty())break;
