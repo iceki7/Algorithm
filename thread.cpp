@@ -20,22 +20,23 @@ int func(int x)
     for (int k = 1; k <= 10; k++)
     {
 
-        cout << "tid=" << x << " | ";
+        cout << "\n|tid=" << x << ",";
         mx.lock();
         tt++;
         //Sleep(10);
-        cout << tt << endl;
+        cout << tt ;
 
 
         mx.unlock();
 
     }
     done++;
-    cout << "thread " << x << " finished";
+    cout << "\nthread " << x << " finished";
     return x;
 }
 int main()
 {
+
     thread* p[load];
     for (int i = 0; i < load; i++)
     {
@@ -55,6 +56,6 @@ int main()
 
     }
     cout << "\n\t所有线程已结束。运行时间(ms)="<<clock();
-
+    cout << "\nCPU核数=" << thread::hardware_concurrency() << endl;
     return 0;
 }
