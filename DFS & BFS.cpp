@@ -14,12 +14,13 @@ void BFS()
     {
     now=queue.front();
 
-    //²Ù×÷now½Úµã
+    //æ“ä½œnowèŠ‚ç‚¹
     
-    while(son_exist&&!mark)
+    while(neighbor)
         {
+        if(marked)continue;
          queue.push();
-         mark();    //Õâ¸ömarkÊÇÔÚÈë¶ÓµÄÊ±ºò¾ÍÒª¼ÓÉÏ
+         mark();    //è¿™ä¸ªmarkæ˜¯åœ¨å…¥é˜Ÿçš„æ—¶å€™å°±è¦åŠ ä¸Š
 
         }
     queue.pop();
@@ -29,7 +30,7 @@ void BFS()
 
 }
 
-void DFS()  //·Çµİ¹é°æ
+void DFS()  //éé€’å½’ç‰ˆ
 {
     stack.push(0);
 
@@ -38,7 +39,7 @@ void DFS()  //·Çµİ¹é°æ
         now=stack.top();
         if(!marked now)
         {
-                //²Ù×÷now½Úµã
+                //æ“ä½œnowèŠ‚ç‚¹
                 mark(now);
 
         }
@@ -58,9 +59,9 @@ void DFS()  //·Çµİ¹é°æ
 
     }
 }
-void DFS(now)  //µİ¹é°æ
+void DFS(now)  //é€’å½’ç‰ˆ
 {
-    //²Ù×÷now½Úµã
+    //æ“ä½œnowèŠ‚ç‚¹
     mark(now);
     
     for(neighbor)
