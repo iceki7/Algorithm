@@ -11,12 +11,14 @@ vector<int> did;
 vector<int> undid;
 
 int n,m;
-//max_i,j{st(i,j)}
-//st(i,j)=min_x{WP(i,j,x)}
-//WP:从i到j的路径x所对应的权值
 
 
-//求任给的两点之间关于某个测度的最佳的路径的问题，Dijskra版本
+//连接点x和点y的边有一个权值w(x,y)。
+//求任给的两点间，关于某个度量的最佳的路径的问题，Dijskra算法。
+//例如，从源点k到某个点y的[最短]距离  best(k,y)。
+
+//假设现在已经求出了best值的点为d,没求出的为u。
+//那么，遍历d和它们连通的u。假设(d',u')使得 best(k,d)+w(d,u)达到最小，那么best(k,u')=best(k,d')+w(d',u')
 
 void del(int v)
 {
@@ -37,13 +39,13 @@ void dijskra()//寻找min_w{E(i,j)}
       int ti,tj,te;
       bool fnd;
       fnd=false;
-         for(vector<int>::iterator i=did.begin();i!=did.end();i++)
+         for(vector<int>::iterator i=did.begin();i!=did.end();i++)   //did：已经找到了解的节点集合。
     {
        for(vector<int>::iterator j=undid.begin();j!=undid.end();j++)
         {
-               if(!edg[*i][*j])continue;
+               if(!edg[*i][*j])continue;//i、j不连通。
 
-               if(edg[*i][*j]<te||!fnd)
+               if(edg[*i][*j]<te||!fnd) //始终保持te是目前连接did、undid集合的最小的那个权值。
                {
                te=edg[*i][*j];
                tj=*j;
@@ -63,7 +65,7 @@ void dijskra()//寻找min_w{E(i,j)}
 
             //通常的特征函数：st(j)=st(i)+e~(i,j)
         }
-          did.push_back(tj);
+          did.push_back(tj);//
           del(tj);
       }
 
