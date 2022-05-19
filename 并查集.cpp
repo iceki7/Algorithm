@@ -2,10 +2,11 @@
 #include<cstring>
 #include<cmath>
 #define load 50005
-//并查集版本，将所有元素划分为等价类，并设定代表元
+//并查集：用于快速判断两个元素是否在同一个集合中。
+//同一个集合中的元素是连通的。
 using namespace std;
 int key[load];//内容为数字
-int last[load];//下标为数字
+int last[load];//元素x的指向的上一个元素是last[x]，如果last[x]=x，那么x是根。
 
 //按次序枚举。
 int n;
@@ -58,12 +59,14 @@ void init()//并查集的划分
 	}
 }
 //base 根节点 last 上层节点
-int root(int x)
+
+int root(int x)  //寻找某个节点的根节点
 {
 	if(last[x]==x)return x;
-	else return (last[x]=root(last[x]));
+	last[x]=root(last[x]);	//将元素的上一个节点直接改为根节点。
+	return last[x];
 }
-void mrg(int x,int y)//x的根节点指向y的根节点
+void mrg(int x,int y)//连接节点x和y。
 {
-	last[root(x)]=root(y);
+	last[root(x)]=root(y);//把x的根节点连接到y，等于减少了一个根节点。
 }
