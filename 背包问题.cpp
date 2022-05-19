@@ -2,7 +2,7 @@
 using namespace std;
 int herb[105][2];
 int c,n;
-int sm[1005][105];//ÈÝÁ¿ÎªcÊ±£¬Ö»¿¼ÂÇÇ°n¼þÎïÆ·µÄ×îÓÅ·½°¸
+int sm[1005][105];//å®¹é‡ä¸ºcæ—¶ï¼Œåªè€ƒè™‘å‰nä»¶ç‰©å“çš„æœ€ä¼˜æ–¹æ¡ˆ
 int main()
 {
     cin>>c>>n;
@@ -14,7 +14,7 @@ int main()
     for(int y=1;y<=c;y++)
         for(int x=1;x<=n;x++)
     {
-        if(y-herb[x][0]<0)sm[y][x]=sm[y][x-1];//×´Ì¬·½³Ì
+        if(y-herb[x][0]<0)sm[y][x]=sm[y][x-1];//çŠ¶æ€æ–¹ç¨‹
         else
         sm[y][x]=max(sm[y][x-1],sm[y-herb[x][0]][x-1]+herb[x][1]);
 
