@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     return 0;
-}/*
+}
 void BFS()
 {
 
@@ -16,11 +16,11 @@ void BFS()
 
     //操作now节点
     
-    while(neighbor)
+    while(now.neighbor)
         {
         if(marked)continue;
          queue.push();
-         mark();    //这个mark是在入队的时候就要加上
+         mark();
 
         }
     queue.pop();
@@ -32,21 +32,14 @@ void BFS()
 
 void DFS()  //非递归版
 {
-    stack.push(0);
-
     while(!stack.empty())
     {
         now=stack.top();
-        if(!marked now)
-        {
-                //操作now节点
-                mark(now);
+        mark(now);
 
-        }
-
-        while(neighbor)
+        while(now.neighbor)
          {
-         if(!mark)
+         if(!marked)
             {
             stack.push();
             found=true;

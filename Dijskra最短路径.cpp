@@ -9,17 +9,17 @@ vector<int> did;
 vector<int> undid;
 int source=0;
 
-//连接点x和点y的边有一个权w(x,y)。
+//无向带权图
 //求任意两点间的最短路径，Dijskra算法。
 
-//例如，从源点k到某个点y的[最短]距离  best(k,y)。
+//从源点k到某个点y的[最短]距离  best(k,y)。
 
-//假设现在已经求出了best值的点为d,没求出的为u。
-// 求 min_{d,u} ( best(k,d)+w(d,u) ) 对应的(d',u')
-//那么  best(k,u')=best(k,d')+w(d',u')
+//设目前已经求出了best值的点的集合为D,没求出的为U。
+//假设U中那些与D相邻的点的集合为V
+// 那么 设{d*,u*}= argmin_{d,v,d和v相连，且v∈V，d∈D}( best(k,d)+w(d,v) ) 
+//那么可以证明：best(k,v*)=best(k,d*)+w(d*,v*),v*就被添加到集合D中了。
 
 
-//权值不能有负数。
 
 void del(int v)
 {
