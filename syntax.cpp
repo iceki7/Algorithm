@@ -1,4 +1,7 @@
-#include "gnn_damage/gnn_damage_solver.hpp" //工程路径
+//!abandon
+
+
+include "gnn_damage/gnn_damage_solver.hpp" //工程路径
 #include <iostream>
 
 #ifndef GNN

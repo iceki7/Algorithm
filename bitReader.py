@@ -11,7 +11,7 @@ Created on Thu Oct 26 15:59:25 2023
 
 @author: 34915
 """
-
+#逐比特检查加密压缩文件
 
 def test(file):
     with open(file, "rb") as file:
