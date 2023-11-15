@@ -16,7 +16,7 @@ void BFS()
 
     //操作now节点
     
-    while(now.neighbor)
+    for(now.neighbor)
         {
         if(marked)continue;
          queue.push();
