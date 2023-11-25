@@ -22,7 +22,18 @@
 
 using namespace std;
 namespace nm {
-	class Animal {};
+	class Animal {
+	public:
+		virtual void eat() = 0;//实现多态。如果用基类指针指向子类对象，就可以调用不同的方法
+	};
+
+	class Dog :public Animal {
+	public:
+		void eat() {
+			cout << "\n dog eat \n";
+		}
+	};
+
 	class Cat :public Animal {
 		int k;
 		static int s;
@@ -30,6 +41,15 @@ namespace nm {
 		//public相当于是类暴露给外侧的接口，允许其他人使用
 		//（写类的和用类的肯定不是同一个人，不然也没必要区分public和private了）
 	public:
+		struct character
+		{
+			int ch;
+
+		};
+		class eye {
+
+			int color;
+		};
 		Cat(){}//如果有其他构造函数，这个函数就得显式写出
 		Cat(int k) {
 			cout << "---------" << endl;
@@ -37,10 +57,14 @@ namespace nm {
 			cout << this->k << endl;
 			this->k = k;
 		}
+		void eat() {//重载的函数必须形参一致才算
+			
+			std::cout << "\n cat eat \n";
+		}
 		static void f0(int& x) {//形参传引用
 			cout << "\t\n";
 		}
-		void func()const {//不修改成员变量
+		void func(const int x)const {//不修改成员变量，且不修改x
 		}
 	};
 }
@@ -49,6 +73,7 @@ namespace nm {
 
 template <typename T>//调用的时候某些情况下可以不显式指定
 T g(T a, T b) {
+	static int x;
 	return a + b;
 }
 char operator +(nm::Cat a, nm::Cat b) {
@@ -63,22 +88,37 @@ const int* c1;//值固定
 int* const c2=NULL;//地址固定
 const int phi = 3.14;
 
-int a;
-int* p = &a;
+
+int zero;
+int z = 3.5;
+int* p = &zero;
 unsigned short us;
 nm::Cat k1(666);
-nm::Cat* k2=new(nm::Cat);
+nm::Animal* animal =new(nm::Cat);
 string str = "str";
 int main() {
-	
-	for (int i = 1; i <= 5; i++) {
-		cout <<"i="<< i << endl;
+
+	switch (2) {
+	case 1:cout << "[c1]"; break;
+	case 2:cout << "[c2]"; break;
+	default:cout << "[cd]";
 	}
-	nm::Cat::f0(a);
+
+	cout << "zero="<<zero;
+	char output[2][3];
+	memset(output, '?', sizeof(output));
+
+	cout << endl<<"ABC"[2]<<endl;
+	
+	for (int i = 1; i <= 5; i++) 
+		cout <<"i="<< i << endl;//不加扩号作用域限1句
+	cout << "[end for]";
+
+	nm::Cat::f0(zero);
 	g<int>(l, l);
-	k1.func();
-	k2->func();
-	delete(k2);
+	k1.func(7);
+	animal->eat();//对象指针使用->调用方法
+	delete(animal);
 	auto c = 7.2;
 	cout <<endl<< sizeof(c)<<" Bytes";
 	//try {
@@ -97,6 +137,11 @@ int main() {
 }
 void printlist() {
 
+
+	std::vector<std::vector<double>> v1(3,std::vector<double> (5,1.f));//kn
+	v1[2][3] = 1;//二重STL
+	//push_back(1);
+	
 	list<int>L;
 	for (list<int>::const_iterator it = L.begin(); it != L.end(); it++)
 	{
