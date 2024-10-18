@@ -6,8 +6,8 @@
 #include<fstream>
 #include<cstdlib>
 
-#include<list>//Ë«ÏòÁ´±í¡£ÎïÀíÉÏ²»ÏàÁÚ¡£²éÕÒ²»·½±ã£¬µ«ÊÇ²åÈëÔªËØºÜ·½±ã¡£
-#include<vector>//ÎïÀíÉÏµÄÁ¬Ğø¿Õ¼ä£¬Ëæ»ú·ÃÎÊĞ§ÂÊ¸ß
+#include<list>//åŒå‘é“¾è¡¨ã€‚ç‰©ç†ä¸Šä¸ç›¸é‚»ã€‚æŸ¥æ‰¾ä¸æ–¹ä¾¿ï¼Œä½†æ˜¯æ’å…¥å…ƒç´ å¾ˆæ–¹ä¾¿ã€‚
+#include<vector>//ç‰©ç†ä¸Šçš„è¿ç»­ç©ºé—´ï¼Œéšæœºè®¿é—®æ•ˆç‡é«˜
 #include<queue>
 #include<stack>
 
@@ -24,7 +24,7 @@ using namespace std;
 namespace nm {
 	class Animal {
 	public:
-		virtual void eat() = 0;//ÊµÏÖ¶àÌ¬¡£Èç¹ûÓÃ»ùÀàÖ¸ÕëÖ¸Ïò×ÓÀà¶ÔÏó£¬¾Í¿ÉÒÔµ÷ÓÃ²»Í¬µÄ·½·¨
+		virtual void eat() = 0;//å®ç°å¤šæ€ã€‚å¦‚æœç”¨åŸºç±»æŒ‡é’ˆæŒ‡å‘å­ç±»å¯¹è±¡ï¼Œå°±å¯ä»¥è°ƒç”¨ä¸åŒçš„æ–¹æ³•
 	};
 
 	class Dog :public Animal {
@@ -37,9 +37,9 @@ namespace nm {
 	class Cat :public Animal {
 		int k;
 		static int s;
-		//²»¼ÓÄ¬ÈÏÎªprivate
-		//publicÏàµ±ÓÚÊÇÀà±©Â¶¸øÍâ²àµÄ½Ó¿Ú£¬ÔÊĞíÆäËûÈËÊ¹ÓÃ
-		//£¨Ğ´ÀàµÄºÍÓÃÀàµÄ¿Ï¶¨²»ÊÇÍ¬Ò»¸öÈË£¬²»È»Ò²Ã»±ØÒªÇø·ÖpublicºÍprivateÁË£©
+		//ä¸åŠ é»˜è®¤ä¸ºprivate
+		//publicç›¸å½“äºæ˜¯ç±»æš´éœ²ç»™å¤–ä¾§çš„æ¥å£ï¼Œå…è®¸å…¶ä»–äººä½¿ç”¨
+		//ï¼ˆå†™ç±»çš„å’Œç”¨ç±»çš„è‚¯å®šä¸æ˜¯åŒä¸€ä¸ªäººï¼Œä¸ç„¶ä¹Ÿæ²¡å¿…è¦åŒºåˆ†publicå’Œprivateäº†ï¼‰
 	public:
 		struct character
 		{
@@ -50,28 +50,28 @@ namespace nm {
 
 			int color;
 		};
-		Cat(){}//Èç¹ûÓĞÆäËû¹¹Ôìº¯Êı£¬Õâ¸öº¯Êı¾ÍµÃÏÔÊ½Ğ´³ö
+		Cat(){}//å¦‚æœæœ‰å…¶ä»–æ„é€ å‡½æ•°ï¼Œè¿™ä¸ªå‡½æ•°å°±å¾—æ˜¾å¼å†™å‡º
 		Cat(int k) {
 			cout << "---------" << endl;
-			cout << k << endl;//²»¼ÓthisÄ¬ÈÏÊÇÖ¸ĞÎ²Î
+			cout << k << endl;//ä¸åŠ thisé»˜è®¤æ˜¯æŒ‡å½¢å‚
 			cout << this->k << endl;
 			this->k = k;
 		}
-		void eat() {//ÖØÔØµÄº¯Êı±ØĞëĞÎ²ÎÒ»ÖÂ²ÅËã
+		void eat() {//é‡è½½çš„å‡½æ•°å¿…é¡»å½¢å‚ä¸€è‡´æ‰ç®—
 			
 			std::cout << "\n cat eat \n";
 		}
-		static void f0(int& x) {//ĞÎ²Î´«ÒıÓÃ
+		static void f0(int& x) {//å½¢å‚ä¼ å¼•ç”¨
 			cout << "\t\n";
 		}
-		void func(const int x)const {//²»ĞŞ¸Ä³ÉÔ±±äÁ¿£¬ÇÒ²»ĞŞ¸Äx
+		void func(const int x)const {//ä¸ä¿®æ”¹æˆå‘˜å˜é‡ï¼Œä¸”ä¸ä¿®æ”¹x
 		}
 	};
 }
 
 
 
-template <typename T>//µ÷ÓÃµÄÊ±ºòÄ³Ğ©Çé¿öÏÂ¿ÉÒÔ²»ÏÔÊ½Ö¸¶¨
+template <typename T>//è°ƒç”¨çš„æ—¶å€™æŸäº›æƒ…å†µä¸‹å¯ä»¥ä¸æ˜¾å¼æŒ‡å®š
 T g(T a, T b) {
 	static int x;
 	return a + b;
@@ -84,8 +84,8 @@ typedef long long ll;
 ll l = 0x1f;
 double d = 0.35f;
 int x[5][7];
-const int* c1;//Öµ¹Ì¶¨
-int* const c2=NULL;//µØÖ·¹Ì¶¨
+const int* c1;//å€¼å›ºå®š
+int* const c2=NULL;//åœ°å€å›ºå®š
 const int phi = 3.14;
 
 
@@ -111,13 +111,13 @@ int main() {
 	cout << endl<<"ABC"[2]<<endl;
 	
 	for (int i = 1; i <= 5; i++) 
-		cout <<"i="<< i << endl;//²»¼ÓÀ©ºÅ×÷ÓÃÓòÏŞ1¾ä
+		cout <<"i="<< i << endl;//ä¸åŠ æ‰©å·ä½œç”¨åŸŸé™1å¥
 	cout << "[end for]";
 
 	nm::Cat::f0(zero);
 	g<int>(l, l);
 	k1.func(7);
-	animal->eat();//¶ÔÏóÖ¸ÕëÊ¹ÓÃ->µ÷ÓÃ·½·¨
+	animal->eat();//å¯¹è±¡æŒ‡é’ˆä½¿ç”¨->è°ƒç”¨æ–¹æ³•
 	delete(animal);
 	auto c = 7.2;
 	cout <<endl<< sizeof(c)<<" Bytes";
@@ -139,7 +139,7 @@ void printlist() {
 
 
 	std::vector<std::vector<double>> v1(3,std::vector<double> (5,1.f));//kn
-	v1[2][3] = 1;//¶şÖØSTL
+	v1[2][3] = 1;//äºŒé‡STL
 	//push_back(1);
 	
 	list<int>L;
