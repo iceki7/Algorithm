@@ -5,10 +5,27 @@
 #include<string>
 #include<fstream>
 #include<cstdlib>
+// itoa
+
+
+#include<algorithm>
+// sort
+
 
 #include<list>//双向链表。物理上不相邻。查找不方便，但是插入元素很方便。
-#include<vector>//物理上的连续空间，随机访问效率高
+#include<vector>//物理上的连续空间，随机访问O(n)
+// size()
+// sort(vec.begin(),vec.end(),std::greater<int>());		//默认是升序
+//push_back(1);末尾插入
+
+
+//vector<int> v={1,2,3};
+
+
 #include<queue>
+//top pop push,empty()
+//没有元素时不要调用top
+
 #include<stack>
 
 #ifndef GNN
@@ -96,16 +113,24 @@ unsigned short us;
 nm::Cat k1(666);
 nm::Animal* animal =new(nm::Cat);
 string str = "str";
+// length()
+// substr(startpos,length)
+
 int main() {
 
 	switch (2) {
-	case 1:cout << "[c1]"; break;
-	case 2:cout << "[c2]"; break;
+	case 1: cout << "[c1]"; break;
+	
+	case 2: cout<<"2"; case 3:cout << "[c2]"; break;
+
 	default:cout << "[cd]";
 	}
 
 	cout << "zero="<<zero;
 	char output[2][3];
+
+	char *p= &str[0];
+
 	memset(output, '?', sizeof(output));
 
 	cout << endl<<"ABC"[2]<<endl;
@@ -138,9 +163,12 @@ int main() {
 void printlist() {
 
 
-	std::vector<std::vector<double>> v1(3,std::vector<double> (5,1.f));//kn
+	std::vector<std::vector<double>> v1(3,std::vector<double> (5,1.f));
+	vector<int> vec(size,value);
+
+
 	v1[2][3] = 1;//二重STL
-	//push_back(1);
+
 	
 	list<int>L;
 	for (list<int>::const_iterator it = L.begin(); it != L.end(); it++)
